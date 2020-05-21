@@ -3,14 +3,13 @@ ct_h2o
 ======
 
 
-Add a short description here!
+Module to calculate annual make-up water usage for evaporative cooling towers
 
 
 Description
 ===========
 
-A longer description of your project goes here...
-
+currently proof of concept development
 
 Note
 ====
