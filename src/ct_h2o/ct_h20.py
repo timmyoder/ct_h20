@@ -104,17 +104,17 @@ class Tower:
 
     def annual_water_make_up_profile(self):
         """Calculates and returns annual make-up water consumption from the tower"""
-        pass
+        return self.cooling_water_flow * 0.008
 
     @property
     def total_annual_water_make_up(self):
         """Returns the total amount of make-up water consumed over the year"""
-        pass
+        return np.array(self.cooling_water_flow).sum()
 
     @property
     def peak_water_make_up(self):
         """Returns the peak make-up water consumption and datetime throughout the year"""
-        pass
+        return np.array(self.cooling_water_flow).max(initial=None)
 
     @property
     def weather_stats(self):
