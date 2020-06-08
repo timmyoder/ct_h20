@@ -87,14 +87,14 @@ class Tower:
 
     @property
     def airflow(self):
-        max_wb = self.air_entering_wb.max()
+        max_wb = self.air_entering_wb.max(initial=None)
         coincident_db = self.ambient_db[self.air_entering_wb.argmax()]
         design_w = psychrolib.GetHumRatioFromTWetBulb(max_wb, coincident_db)
         design_h = psychrolib.GetMoistAirEnthalpy(coincident_db, design_w)
 
     @property
     def design_wb(self):
-        return self.air_entering_wb.max()
+        return self.air_entering_wb.max(initial=None)
 
     @property
     def design_day(self):
@@ -127,5 +127,9 @@ if __name__ == '__main__':
     weather = inputs / 'weather_data.csv'
 
     tower = Tower()
-    tower.import_cooling_profile(cooling_data)
     tower.import_weather_data(weather)
+
+    # plt.plot(tower.air_entering_wb)
+    # plt.plot(tower.annual_water_make_up_profile())
+    # tower.total_annual_water_make_up
+    # tower.peak_water_make_up
