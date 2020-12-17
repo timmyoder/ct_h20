@@ -2,7 +2,6 @@
 
 import pandas as pd
 import numpy as np
-import datetime as dt
 import pathlib
 import matplotlib.pyplot as plt
 import psychrolib
@@ -37,10 +36,10 @@ class Tower:
     w_leaving_h = 52.85  # btu/lb - 85° water
     PRESSURE = 14.6959  # psi sea level atmospheric
 
-    def __init__(self, cycles=5, drift=0.002, dt=10):
+    def __init__(self, cycles=5, drift=0.002, delta_t=10):
         self.cycles = cycles
         self.drift = drift
-        self.dt = dt
+        self.dt = delta_t
         self.cooling_profile = np.empty(8760)
         self.ambient_db = np.empty(8760)
         self.ambient_dp = np.empty(8760)
